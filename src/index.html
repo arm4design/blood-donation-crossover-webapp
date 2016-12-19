@@ -2,13 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>BloodDonationXoverWebapp</title>
+  <title>Blood Donation - Crossover</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/themes/calcite/dijit/calcite.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/themes/calcite/esri/esri.css">
+  <script>
+    // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
 </head>
-<body>
-  <app-root>Loading...</app-root>
+<body class="calcite">
+  <app-root class="column">Loading...</app-root>
 </body>
 </html>

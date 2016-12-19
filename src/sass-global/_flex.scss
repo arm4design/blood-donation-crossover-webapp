@@ -1,0 +1,41 @@
+@mixin flex-row {
+    @include display(flex);
+    @include flex-flow(row nowrap);
+    @include align-items(center);
+}
+@mixin flex-column {
+    @include display(flex);
+    @include flex-flow(column nowrap);
+    @include align-items(flex-start);
+}
+
+.row {
+    @include flex-row;
+}
+.column {
+    @include flex-column;
+}
+.row,
+.column {
+    &.align-start {
+        @include align-items(flex-start);
+    }
+    &.align-center {
+        @include align-items(center);
+    }
+    &.align-end {
+        @include align-items(flex-end);
+    }
+    &.justify-start {
+        @include justify-content(flex-start);
+    }
+    &.justify-center {
+        @include justify-content(center);
+    }
+    &.justify-end {
+        @include justify-content(flex-end);
+    }
+    &.justify-between {
+        @include justify-content(space-between);
+    }
+}

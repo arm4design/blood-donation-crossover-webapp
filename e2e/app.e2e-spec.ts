@@ -1,10 +1,10 @@
-import { BloodDonationXoverWebappPage } from './app.po';
+import { WebappPage } from './app.po';
 
-describe('blood-donation-xover-webapp- App', function() {
-  let page: BloodDonationXoverWebappPage;
+describe('webapp App', function() {
+  let page: WebappPage;
 
   beforeEach(() => {
-    page = new BloodDonationXoverWebappPage();
+    page = new WebappPage();
   });
 
   it('should display message saying app works', () => {

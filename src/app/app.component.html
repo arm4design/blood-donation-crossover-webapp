@@ -1,3 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<header class="row justify-between">
+    <div class="branding row">
+        <i class="fa fa-heartbeat fa-3x"></i>
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="buttons row">
+        <a routerLink="/donor" class="button donor">Want to donate</a>
+        <a routerLink="/patient" class="button patient">Looking for a donor</a>
+    </div>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>

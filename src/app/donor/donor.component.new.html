@@ -1,0 +1,58 @@
+<map [mapType]="mapType" [clearMapGraphics]="clearMapGraphics" (onDonorAdded)="onDonorAdded($event)"></map>
+<div class="donor-popup row justify-center" [class.visible]="displayPopup">
+    <div class="inner-wrapper column">
+        <header>
+            <h3>{{ title }}</h3>
+            <i class="fa fa-times fa-2x" (click)="hidePopup()"></i>
+        </header>
+        <div *ngIf="message" class="message" [class.error]="isError">
+            <span>{{ message }}</span>
+            <a href="{{ donorUrl }}">{{ donorUrl }}</a>
+        </div>
+        <form #f="ngForm" (ngSubmit)="submitPopup(f)" class="column align-center"
+            [ngClass]="{'ng-submitted': submitted, blocked: blockForm}" novalidate>
+            <input type="text"
+                [(ngModel)]="donor.firstName"
+                name="firstName"
+                placeholder="First name"
+                [readonly]="blockForm"
+                required />
+            <input type="text"
+                [(ngModel)]="donor.lastName"
+                name="lastName"
+                placeholder="Last name"
+                [readonly]="blockForm"
+                required />
+            <input type="tel"
+                [(ngModel)]="donor.contactNumber"
+                name="contactNumber"
+                placeholder="Contact number"
+                pattern="(00|\+)[0-9]{9,14}"
+                [readonly]="blockForm"
+                required />
+            <input type="email"
+                [(ngModel)]="donor.emailAddress"
+                name="emailAddress"
+                placeholder="Email address"
+                pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+"
+                [readonly]="blockForm"
+                required />
+            <div class="select-wrapper">
+                <select [(ngModel)]="donor.bloodGroup"
+                        name="bloodGroup"
+                        [disabled]="blockForm"
+                        required>
+                    <option value="" class="empty-value" selected>Select your blood group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <i class="fa fa-caret-down"></i>
+            </div>
+            <input type="submit" [hidden]="blockForm" value="Submit" />
+        </form>
+    </div>
+</div>

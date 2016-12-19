@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class BloodDonationXoverWebappPage {
+export class WebappPage {
   navigateTo() {
     return browser.get('/');
   }

@@ -1,0 +1,65 @@
+form {
+    padding: 30px 30px 20px 30px;
+}
+div.select-wrapper {
+    position: relative;
+    select {
+        @include appearance(none);
+        width: 250px;
+        height: 43px;
+        font-size: 20px;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid $purple;
+        padding: 10px 25px 10px 10px;
+        cursor: pointer;
+        outline: 0;
+        margin-bottom: 20px;
+    }
+    i {
+        position: absolute;
+        right: 10px;
+        top: 13px;
+    }
+}
+input[type="submit"],
+input[type="button"],
+button,
+.button {
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+    @include appearance(none);
+    padding: 10px 20px;
+    background: $purple;
+    border: 1px solid $purple-light;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    &:hover {
+        background: $purple-light;
+    }
+}
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"] {
+    font-family: 'Nunito Sans', sans-serif;
+    width: 250px;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid $purple;
+    font-size: 18px;
+}
+input,
+select,
+button {
+    outline: 0;
+    margin-bottom: 20px;
+}
+
+form.ng-submitted {
+    .ng-invalid {
+        border-bottom: 1px solid $red!important;
+    }
+}

@@ -1,0 +1,48 @@
+<header>
+    <h3>{{ title }}</h3>
+</header>
+<div *ngIf="message" class="message" [class.error]="isError">
+    <span>{{ message }}</span>
+    <a href="{{ donorUrl }}">{{ donorUrl }}</a>
+</div>
+<form #f="ngForm" (ngSubmit)="submit(f)" class="column align-center"
+    [ngClass]="{'ng-submitted': submitted, blocked: blockForm}" novalidate>
+    <input type="text"
+        [(ngModel)]="donor.firstName"
+        name="firstName"
+        placeholder="First name"
+        required />
+    <input type="text"
+        [(ngModel)]="donor.lastName"
+        name="lastName"
+        placeholder="Last name"
+        required />
+    <input type="tel"
+        [(ngModel)]="donor.contactNumber"
+        name="contactNumber"
+        placeholder="Contact number"
+        pattern="(00|\+)[0-9]{9,14}"
+        required />
+    <input type="email"
+        [(ngModel)]="donor.emailAddress"
+        name="emailAddress"
+        placeholder="Email address"
+        pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+"
+        required />
+    <div class="select-wrapper">
+        <select [(ngModel)]="donor.bloodGroup"
+                name="bloodGroup"
+                required>
+            <option value="" class="empty-value" selected>Select your blood group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        <i class="fa fa-caret-down"></i>
+    </div>
+    <input type="submit" value="Update Subscription" />
+    <input type="button" value="Remove Subscription" (click)="remove()" />
+</form>

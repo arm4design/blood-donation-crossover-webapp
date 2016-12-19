@@ -1,0 +1,77 @@
+@import "../../../node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "../../sass-global/colors";
+
+:host {
+    .donor-popup {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        background: $semi-transparent;
+        display: none;
+        &.visible {
+            display: flex;
+        }
+        > .inner-wrapper {
+            width: 350px;
+            background: $white;
+            border: 2px solid $purple;
+            border-radius: 4px;
+            box-shadow: $shadow;
+            > header {
+                width: 100%;
+                background: $purple;
+                color: $white;
+                padding: rem(20);
+                position: relative;
+                > h3 {
+                    margin: 0;
+                    font-size: 18px;
+                    text-align: center;
+                }
+                > i {
+                    position: absolute;
+                    right: rem(10);
+                    top: rem(10);
+                    cursor: pointer;
+                }
+            }
+            > .message {
+                width: 100%;
+                padding: rem(20);
+                font-size: 15px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                &.error {
+                    background: $red;
+                    color: $white;
+                }
+            }
+            > form {
+                padding: 30px 30px 20px 30px;
+                &.blocked {
+                    padding-top: 10px;
+                }
+                &,
+                > input[type="text"],
+                > input[type="tel"],
+                > input[type="number"],
+                > input[type="email"],
+                > .select-wrapper,
+                > .select-wrapper > select {
+                    width: 100%;
+                    &[disabled] {
+                        color: #000;
+                    }
+                }
+                > input[type="submit"] {
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

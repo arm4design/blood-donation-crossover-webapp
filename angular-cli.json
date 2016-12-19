@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.22-1",
-    "name": "blood-donation-xover-webapp-"
+    "name": "blood-donation-xover-webapp"
   },
   "apps": [
     {
@@ -18,7 +18,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "../node_modules/normalize.css/normalize.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "styles.scss"
       ],
       "scripts": [],
       "environments": {
